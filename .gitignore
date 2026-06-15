@@ -28,8 +28,10 @@ Thumbs.db
 demo_data/data/
 demo_data/videos/
 demo_data/images/
-demo_data/meta/stats.json
-demo_data/meta/episodes.jsonl
+demo_data/meta/
+
+# Local scripts
+scripts/
 
 # Checkpoints (regenerate via training)
 ckpt/
