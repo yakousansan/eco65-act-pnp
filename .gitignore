@@ -27,6 +27,7 @@ Thumbs.db
 # Project specific
 demo_data/data/
 demo_data/videos/
+demo_data/images/
 demo_data/meta/stats.json
 demo_data/meta/episodes.jsonl
 
@@ -39,6 +40,9 @@ ckpt/act_y/model.safetensors
 
 # Project docs (local only)
 vla-guide.md
+
+# Local ROS packages
+dh_gripper_ros/
 
 # MuJoCo
 *.mjb
