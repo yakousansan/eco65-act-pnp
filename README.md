@@ -168,20 +168,12 @@ pip install numpy opencv-python pillow glfw matplotlib
 git clone https://github.com/yakousansan/eco65-act-pnp.git
 cd eco65-act-pnp
 
-# 确认 MuJoCo 可正常加载场景
-python OpenDemo.py
+pip install -e .
 ```
 
 ### 使用说明
 
-#### 第 1 步：打开场景预览
-
-```bash
-# 仅打开 MuJoCo 场景，检查模型加载是否正常
-python OpenDemo.py
-```
-
-#### 第 2 步：遥操作采集数据
+#### 第 1 步：遥操作采集数据
 
 ```bash
 python 1.collect_data.py
@@ -203,9 +195,13 @@ python 1.collect_data.py
 
 每完成一次成功放置，自动保存一个 episode。关闭窗口后自动编码视频并写入磁盘。
 
+<p align="center">
+  <img src="docs/ep4_collect.gif" width="480" alt="遥操作采集演示">
+</p>
+
 > **提示**：可在脚本中修改 `NUM_DEMO` 变量调整采集条数，修改 `ROOT` 变量调整数据保存路径。
 
-#### 第 3 步：可视化验证数据
+#### 第 2 步：可视化验证数据
 
 ```bash
 python 2.visualize_data.py
@@ -213,7 +209,11 @@ python 2.visualize_data.py
 
 在 MuJoCo 窗口中回放采集的数据，验证动作是否平滑、物体位置是否正确。同时自动计算数据统计量（均值/标准差）并保存到 `demo_data/meta/stats.json`。
 
-#### 第 4 步：训练 ACT 策略
+<p align="center">
+  <img src="docs/ep5_visualize.gif" width="480" alt="可视化回放演示">
+</p>
+
+#### 第 3 步：训练 ACT 策略
 
 ```bash
 python 3.train.py
@@ -230,7 +230,7 @@ python 3.train.py
 
 训练结束后自动绘制预测/真值对比图。
 
-#### 第 5 步：部署测试
+#### 第 4 步：部署测试
 
 ```bash
 python 4.deploy.py
@@ -238,7 +238,7 @@ python 4.deploy.py
 
 加载训练好的模型，在 MuJoCo 中自主运行。策略根据实时视觉和状态输入预测 action chunk，执行推理。成功完成任务后自动 reset 并继续。
 
-> **效果不佳？** 返回第 2 步采集更多演示数据。推荐 20+ 条演示以获得较好的泛化能力。
+> **效果不佳？** 返回第 1 步采集更多演示数据。推荐 20+ 条演示以获得较好的泛化能力。
 
 ### 项目结构
 

@@ -168,20 +168,12 @@ pip install numpy opencv-python pillow glfw matplotlib
 git clone https://github.com/yakousansan/eco65-act-pnp.git
 cd eco65-act-pnp
 
-# Verify MuJoCo can load the scene
-python OpenDemo.py
+pip install -e .
 ```
 
 ### Usage
 
-#### Step 1: Preview the Scene
-
-```bash
-# Open the MuJoCo scene to verify model loading
-python OpenDemo.py
-```
-
-#### Step 2: Collect Demonstration Data
+#### Step 1: Collect Demonstration Data
 
 ```bash
 python 1.collect_data.py
@@ -203,9 +195,13 @@ In the MuJoCo window, use keyboard teleoperation to control the robot arm for th
 
 Each successful placement auto-saves one episode. Closing the window triggers video encoding and disk write.
 
+<p align="center">
+  <img src="docs/ep4_collect.gif" width="480" alt="Teleoperation collection demo">
+</p>
+
 > **Tip**: Modify `NUM_DEMO` to change collection count, `ROOT` to change save path in the script.
 
-#### Step 3: Visualize Collected Data
+#### Step 2: Visualize Collected Data
 
 ```bash
 python 2.visualize_data.py
@@ -213,7 +209,11 @@ python 2.visualize_data.py
 
 Replay collected episodes in MuJoCo to verify data quality. Automatically computes normalization statistics (mean/std) and saves to `demo_data/meta/stats.json`.
 
-#### Step 4: Train ACT Policy
+<p align="center">
+  <img src="docs/ep5_visualize.gif" width="480" alt="Visualization replay demo">
+</p>
+
+#### Step 3: Train ACT Policy
 
 ```bash
 python 3.train.py
@@ -230,7 +230,7 @@ Training process:
 
 After training, a prediction vs. ground truth comparison plot is displayed.
 
-#### Step 5: Deploy and Test
+#### Step 4: Deploy and Test
 
 ```bash
 python 4.deploy.py
@@ -238,7 +238,7 @@ python 4.deploy.py
 
 Loads the trained model and runs autonomously in MuJoCo. The policy predicts action chunks from real-time visual and state inputs. Automatically resets on task completion.
 
-> **Poor performance?** Return to Step 2 and collect more demonstrations. 20+ episodes recommended for good generalization.
+> **Poor performance?** Return to Step 1 and collect more demonstrations. 20+ episodes recommended for good generalization.
 
 ### Project Structure
 
