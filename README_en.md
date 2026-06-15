@@ -232,7 +232,6 @@ eco65-act-pnp/
 ├── 2.visualize_data.py       # Data visualization (replay + stats computation)
 ├── 3.train.py                # ACT policy training
 ├── 4.deploy.py               # Model deployment & inference
-├── vla-guide.md              # Detailed project documentation (Chinese)
 ├── model/                    # MuJoCo model assets
 │   ├── demo_scene.xml        # Main scene (table + robot + objects)
 │   ├── eco65_with_pgc140_d435i.xml  # ECO65 + PGC140 + D435i model

@@ -232,7 +232,6 @@ eco65-act-pnp/
 ├── 2.visualize_data.py       # 数据可视化脚本（回放 + 统计量计算）
 ├── 3.train.py                # ACT 策略训练脚本
 ├── 4.deploy.py               # 模型部署与推理脚本
-├── vla-guide.md              # 项目详细文档（中文）
 ├── model/                    # MuJoCo 模型资源
 │   ├── demo_scene.xml        # 主场景（桌面 + 机器人 + 物体）
 │   ├── eco65_with_pgc140_d435i.xml  # ECO65 + PGC140 + D435i 模型

@@ -37,5 +37,8 @@ ckpt/act_y/model.safetensors
 .agents/
 .codex/
 
+# Project docs (local only)
+vla-guide.md
+
 # MuJoCo
 *.mjb
