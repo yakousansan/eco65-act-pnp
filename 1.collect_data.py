@@ -33,7 +33,7 @@ if create_new:
     dataset = LeRobotDataset.create(
                 repo_id=REPO_NAME,
                 root = ROOT,
-                robot_type="eco65_pgc140",
+                robot_type="eco65_2f85",
                 fps=20, # 20 frames per second
                 features={
                     "observation.image": {

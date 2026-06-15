@@ -116,7 +116,7 @@ Input                        Output
 - **VAE action encoding**: Optional variational autoencoder learns action latent representations for diverse behavior
 - **Temporal Ensemble**: Exponential moving average smoothing during deployment eliminates prediction jitter
 - **LeRobot v3.0 format**: Standardized Parquet + MP4 storage, compatible with HuggingFace LeRobot ecosystem
-- **High-fidelity MuJoCo simulation**: ECO65 6-axis arm + PGC140 parallel gripper + D435i depth camera
+- **High-fidelity MuJoCo simulation**: ECO65 6-axis arm + Robotiq 2F-85 gripper + D435i depth camera
 - **IK solver**: Damped Least Squares (DLS) inverse kinematics for end-effector space teleoperation
 - **Multi-view rendering**: Third-person view (agentview) + wrist view (d435i_rgb) + side view
 - **Randomized object positions**: Mug and plate positions are randomized within table bounds on each reset
@@ -250,12 +250,12 @@ eco65-act-pnp/
 ├── 4.deploy.py               # Model deployment & inference
 ├── model/                    # MuJoCo model assets
 │   ├── demo_scene.xml        # Main scene (table + robot + objects)
-│   ├── eco65_with_pgc140_d435i.xml  # ECO65 + PGC140 + D435i model
+│   ├── eco65_with_2f85_d435i.xml  # ECO65 + Robotiq 2F-85 + D435i model
 │   ├── mug_5/                # Mug mesh model
 │   ├── plate_11/             # Plate mesh model
 │   ├── tabletop/             # Table mesh model
 │   ├── realsense_d435i/      # D435i camera model
-│   ├── dh_pgc140_meshes/     # PGC140 gripper meshes
+│   ├── robotiq_2f85/         # Robotiq 2F-85 gripper model
 │   └── eco65_meshes/         # ECO65 arm meshes
 ├── mujoco_env/               # MuJoCo environment wrapper
 │   ├── __init__.py

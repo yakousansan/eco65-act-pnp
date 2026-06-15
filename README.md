@@ -116,7 +116,7 @@
 - **VAE 动作编码**：可选的变分自编码器，学习动作潜在表示，增强策略多样性
 - **Temporal Ensemble**：部署时的时间集成平滑，消除预测抖动
 - **LeRobot v3.0 数据格式**：标准化的 Parquet + MP4 存储，兼容 HuggingFace LeRobot 生态
-- **MuJoCo 高保真仿真**：ECO65 六轴机械臂 + PGC140 平行夹爪 + D435i 深度相机
+- **MuJoCo 高保真仿真**：ECO65 六轴机械臂 + Robotiq 2F-85 夹爪 + D435i 深度相机
 - **IK 逆运动学求解**：阻尼最小二乘法（DLS），支持末端空间遥操作
 - **多视角渲染**：第三人称视角 (agentview) + 腕部视角 (d435i_rgb) + 侧面视角 (sideview)
 - **随机物体位置**：每次 reset 在桌面范围内随机生成杯子和盘子的位置，增强数据多样性
@@ -250,12 +250,12 @@ eco65-act-pnp/
 ├── 4.deploy.py               # 模型部署与推理脚本
 ├── model/                    # MuJoCo 模型资源
 │   ├── demo_scene.xml        # 主场景（桌面 + 机器人 + 物体）
-│   ├── eco65_with_pgc140_d435i.xml  # ECO65 + PGC140 + D435i 模型
+│   ├── eco65_with_2f85_d435i.xml  # ECO65 + Robotiq 2F-85 + D435i 模型
 │   ├── mug_5/                # 杯子网格模型
 │   ├── plate_11/             # 盘子网格模型
 │   ├── tabletop/             # 桌面网格模型
 │   ├── realsense_d435i/      # D435i 相机模型
-│   ├── dh_pgc140_meshes/     # PGC140 夹爪网格
+│   ├── robotiq_2f85/         # Robotiq 2F-85 夹爪模型
 │   └── eco65_meshes/         # ECO65 机械臂网格
 ├── mujoco_env/               # MuJoCo 环境封装
 │   ├── __init__.py

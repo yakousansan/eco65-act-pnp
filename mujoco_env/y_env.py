@@ -143,7 +143,7 @@ class SimpleEnv:
         else:
             raise ValueError('action_type not recognized')
 
-        gripper_val = action[-1] * 0.025  # Map 0/1 to 0/0.025 (PGC140 range)
+        gripper_val = action[-1] * 255.0
         gripper_cmd = np.array([gripper_val], dtype=np.float32)
         self.compute_q = q
         q = np.concatenate([q, gripper_cmd])
@@ -213,8 +213,8 @@ class SimpleEnv:
             [j1,j2,j3,j4,j5,j6,gripper]
         '''
         qpos = self.env.get_qpos_joints(joint_names=self.joint_names)
-        gripper = self.env.get_qpos_joint('finger1_joint')
-        gripper_cmd = 1.0 if gripper[0] > 0.012 else 0.0
+        gripper = self.env.get_qpos_joint('right_driver_joint')
+        gripper_cmd = 1.0 if gripper[0] > 0.5 else 0.0
         return np.concatenate([qpos, [gripper_cmd]],dtype=np.float32)
     
     def teleop_robot(self):
@@ -298,8 +298,8 @@ class SimpleEnv:
         '''
         delta = self.compute_q - self.last_q
         self.last_q = copy.deepcopy(self.compute_q)
-        gripper = self.env.get_qpos_joint('finger1_joint')
-        gripper_cmd = 1.0 if gripper[0] > 0.012 else 0.0
+        gripper = self.env.get_qpos_joint('right_driver_joint')
+        gripper_cmd = 1.0 if gripper[0] > 0.5 else 0.0
         return np.concatenate([delta, [gripper_cmd]],dtype=np.float32)
 
     # 判断任务是否成功
@@ -313,7 +313,7 @@ class SimpleEnv:
         p_mug = self.env.get_p_body('body_obj_mug_5')
         p_plate = self.env.get_p_body('body_obj_plate_11')
 
-        if np.linalg.norm(p_mug[:2] - p_plate[:2]) < 0.1 and np.linalg.norm(p_mug[2] - p_plate[2]) < 0.6 and self.env.get_qpos_joint('finger1_joint') < 0.1:
+        if np.linalg.norm(p_mug[:2] - p_plate[:2]) < 0.1 and np.linalg.norm(p_mug[2] - p_plate[2]) < 0.6 and self.env.get_qpos_joint('right_driver_joint') < 0.1:
             p = self.env.get_p_body('link_6')[2]
             if p > 0.9:
                 return True

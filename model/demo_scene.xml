@@ -1,5 +1,5 @@
 <mujoco model="eco65 scene">
-  <include file="eco65_with_pgc140_d435i.xml"/>
+  <include file="eco65_with_2f85_d435i.xml"/>
   <include file="./tabletop/object/object_table.xml" />
   <include file="./plate_11/model_new.xml"/>
   <include file="./mug_5/model_new.xml"/>
