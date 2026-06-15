@@ -28,6 +28,7 @@ The core workflow consists of four steps: **Data Collection → Data Visualizati
 
 - [Overview](#overview)
 - [Architecture](#architecture)
+- [Observation Views](#observation-views)
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [Environment Setup](#environment-setup)
@@ -91,6 +92,21 @@ Input                        Output
          │ (32D) │─┘  │    │
          └──────┘    └────┘
 ```
+
+### Observation Views
+
+<p align="center">
+  <img src="docs/agent_view.png" width="400" alt="Agent View">
+  <img src="docs/wrist_view.png" width="400" alt="Wrist View">
+</p>
+<p align="center">
+  <b>Agent View</b> (third-person)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Wrist View</b> (wrist-mounted camera)
+</p>
+
+| View | Camera Source | Purpose |
+|------|--------------|---------|
+| Agent View | MuJoCo `agentview` | Global scene awareness — object positions and robot arm state |
+| Wrist View | MuJoCo `d435i_rgb` | Close-up end-effector view — precise gripper-object spatial relationship |
 
 ### Features
 

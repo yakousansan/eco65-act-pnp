@@ -28,6 +28,7 @@
 
 - [项目简介](#项目简介)
 - [系统架构](#系统架构)
+- [观测视角](#观测视角)
 - [功能特性](#功能特性)
 - [环境依赖](#环境依赖)
 - [环境配置](#环境配置)
@@ -91,6 +92,21 @@
          │ (32维)│─┘  │    │
          └──────┘    └────┘
 ```
+
+### 观测视角
+
+<p align="center">
+  <img src="docs/agent_view.png" width="400" alt="Agent View">
+  <img src="docs/wrist_view.png" width="400" alt="Wrist View">
+</p>
+<p align="center">
+  <b>Agent View</b>（第三人称全局视角）&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Wrist View</b>（腕部相机近距视角）
+</p>
+
+| 视角 | 来源相机 | 作用 |
+|------|---------|------|
+| Agent View | MuJoCo `agentview` | 全局场景感知，观察物体位置和机械臂状态 |
+| Wrist View | MuJoCo `d435i_rgb` | 末端近距离视角，精确判断夹爪与物体相对关系 |
 
 ### 功能特性
 
