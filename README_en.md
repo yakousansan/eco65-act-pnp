@@ -220,13 +220,6 @@ Loads the trained model and runs autonomously in MuJoCo. The policy predicts act
 
 > **Poor performance?** Return to Step 2 and collect more demonstrations. 20+ episodes recommended for good generalization.
 
-#### Utility Scripts
-
-```bash
-python KeyControl.py   # Keyboard teleop test (no recording)
-python LoadMode.py     # Scene observation only (no control)
-```
-
 ### Project Structure
 
 ```
@@ -235,9 +228,6 @@ eco65-act-pnp/
 ├── 2.visualize_data.py       # Data visualization (replay + stats computation)
 ├── 3.train.py                # ACT policy training
 ├── 4.deploy.py               # Model deployment & inference
-├── OpenDemo.py               # Scene preview (MuJoCo only)
-├── KeyControl.py             # Teleoperation test (no recording)
-├── LoadMode.py               # Scene observer (idle)
 ├── vla-guide.md              # Detailed project documentation (Chinese)
 ├── model/                    # MuJoCo model assets
 │   ├── demo_scene.xml        # Main scene (table + robot + objects)
@@ -257,8 +247,7 @@ eco65-act-pnp/
 │   └── utils.py              # Utilities (sampling, imaging, rendering)
 ├── ckpt/
 │   └── act_y/                # ACT policy checkpoint
-│       ├── config.json       # Policy configuration
-│       └── model.safetensors # Model weights
+│       └── config.json       # Policy configuration (model weights generated via training)
 └── demo_data/                # LeRobot dataset (generated after collection)
     └── meta/
         └── info.json         # Dataset metadata

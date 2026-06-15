@@ -220,13 +220,6 @@ python 4.deploy.py
 
 > **效果不佳？** 返回第 2 步采集更多演示数据。推荐 20+ 条演示以获得较好的泛化能力。
 
-#### 辅助脚本
-
-```bash
-python KeyControl.py   # 键盘遥操作测试（不录制数据）
-python LoadMode.py     # 仅观察场景，不控制机器人
-```
-
 ### 项目结构
 
 ```
@@ -235,9 +228,6 @@ eco65-act-pnp/
 ├── 2.visualize_data.py       # 数据可视化脚本（回放 + 统计量计算）
 ├── 3.train.py                # ACT 策略训练脚本
 ├── 4.deploy.py               # 模型部署与推理脚本
-├── OpenDemo.py               # 场景预览脚本（仅打开 MuJoCo）
-├── KeyControl.py             # 键盘遥操作测试脚本（不录制）
-├── LoadMode.py               # 场景观察脚本（无控制）
 ├── vla-guide.md              # 项目详细文档（中文）
 ├── model/                    # MuJoCo 模型资源
 │   ├── demo_scene.xml        # 主场景（桌面 + 机器人 + 物体）
@@ -257,8 +247,7 @@ eco65-act-pnp/
 │   └── utils.py              # 工具函数（采样、图像、渲染）
 ├── ckpt/
 │   └── act_y/                # ACT 策略检查点
-│       ├── config.json       # 策略配置
-│       └── model.safetensors # 模型权重
+│       └── config.json       # 策略配置（模型权重需通过训练生成）
 └── demo_data/                # LeRobot 数据集（运行后生成）
     └── meta/
         └── info.json         # 数据集元信息
